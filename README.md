@@ -85,6 +85,19 @@ We are open-sourcing Step-Audio-EditX, a powerful **3B parameters** LLM-based au
   </td>
   </tr>
 
+  <tr>
+    <td align="center"> Style-Act_coy</td>
+    <td align="center"> 我今天想喝奶茶，可是不知道喝什么口味，你帮我选一下嘛，你选的都好喝～</td>
+    <td align="center">
+
+  [act_coy_prompt.webm](https://github.com/user-attachments/assets/74d60625-5b3c-4f45-becb-0d3fe7cc4b3f)
+  </td>
+    <td align="center"> 
+
+  [act_coy_output.webm](https://github.com/user-attachments/assets/b2f74577-56c2-4997-afd6-6bf47d15ea51)
+  </td>
+  </tr>
+
 
   <tr>
     <td align="center"> Paralinguistics</td>
