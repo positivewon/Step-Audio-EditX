@@ -7,7 +7,6 @@ import threading
 from typing import Optional, Dict, Any, Tuple
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
-from awq import AutoAWQForCausalLM
 from funasr_detach import AutoModel
 
 # Global cache for downloaded models to avoid repeated downloads
@@ -106,7 +105,7 @@ class UnifiedModelLoader:
         Prepare quantization configuration for model loading
 
         Args:
-            quantization_config: Quantization type ('int4', 'int8', 'int4_offline_awq', or None)
+            quantization_config: Quantization type ('int4', 'int8', or None)
             torch_dtype: PyTorch data type for compute operations
 
         Returns:
@@ -117,12 +116,7 @@ class UnifiedModelLoader:
 
         quantization_config = quantization_config.lower()
 
-        if quantization_config == "int4_offline_awq":
-            # For pre-quantized AWQ models, no additional quantization needed
-            self.logger.info("🔧 Loading pre-quantized AWQ 4-bit model (offline)")
-            return {}, True  # Load pre-quantized model normally, allow torch_dtype setting
-
-        elif quantization_config == "int8":
+        if quantization_config == "int8":
             # Use user-specified torch_dtype for compute, default to bfloat16
             compute_dtype = torch_dtype if torch_dtype is not None else torch.bfloat16
             self.logger.info(f"🔧 INT8 quantization: using {compute_dtype} for compute operations")
@@ -149,7 +143,7 @@ class UnifiedModelLoader:
                 "quantization_config": bnb_config
             }, False  # INT4 quantization handles torch_dtype internally, don't set it again
         else:
-            raise ValueError(f"Unsupported quantization config: {quantization_config}. Supported: 'int4', 'int8', 'int4_offline_awq'")
+            raise ValueError(f"Unsupported quantization config: {quantization_config}. Supported: 'int4', 'int8'")
 
     def load_transformers_model(
         self,
@@ -164,7 +158,7 @@ class UnifiedModelLoader:
         Args:
             model_path: Model path or ID
             source: Model source, auto means auto-detect
-            quantization_config: Quantization configuration ('int4', 'int8', 'int4_offline_awq', or None for no quantization)
+            quantization_config: Quantization configuration ('int4', 'int8', or None for no quantization)
             **kwargs: Other parameters (torch_dtype, device_map, etc.)
 
         Returns:
@@ -196,25 +190,11 @@ class UnifiedModelLoader:
                 if should_set_torch_dtype and kwargs.get("torch_dtype") is not None:
                     load_kwargs["torch_dtype"] = kwargs.get("torch_dtype")
 
-                # Check if using AWQ quantization
-                if quantization_config and quantization_config.lower() == "int4_offline_awq":
-                    # Use AWQ loading for pre-quantized AWQ models
-                    awq_model_path = os.path.join(model_path, "awq_quantized")
-                    if not os.path.exists(awq_model_path):
-                        raise FileNotFoundError(f"AWQ quantized model not found at {awq_model_path}. Please run quantize_model_offline.py first.")
-
-                    self.logger.info(f"🔧 Loading AWQ quantized model from: {awq_model_path}")
-                    model = AutoAWQForCausalLM.from_quantized(
-                        awq_model_path,
-                        device_map=kwargs.get("device_map", "auto"),
-                        trust_remote_code=True
-                    )
-                else:
-                    # Standard loading
-                    model = AutoModelForCausalLM.from_pretrained(
-                        model_path,
-                        **load_kwargs
-                    )
+                # Standard loading
+                model = AutoModelForCausalLM.from_pretrained(
+                    model_path,
+                    **load_kwargs
+                )
                 tokenizer = AutoTokenizer.from_pretrained(
                     model_path,
                     trust_remote_code=True,
@@ -240,25 +220,11 @@ class UnifiedModelLoader:
                 if should_set_torch_dtype and kwargs.get("torch_dtype") is not None:
                     load_kwargs["torch_dtype"] = kwargs.get("torch_dtype")
 
-                # Check if using AWQ quantization
-                if quantization_config and quantization_config.lower() == "int4_offline_awq":
-                    # Use AWQ loading for pre-quantized AWQ models
-                    awq_model_path = os.path.join(model_path, "awq_quantized")
-                    if not os.path.exists(awq_model_path):
-                        raise FileNotFoundError(f"AWQ quantized model not found at {awq_model_path}. Please run quantize_model_offline.py first.")
-
-                    self.logger.info(f"🔧 Loading AWQ quantized model from: {awq_model_path}")
-                    model = AutoAWQForCausalLM.from_quantized(
-                        awq_model_path,
-                        device_map=kwargs.get("device_map", "auto"),
-                        trust_remote_code=True
-                    )
-                else:
-                    # Standard loading
-                    model = MSAutoModelForCausalLM.from_pretrained(
-                        model_path,
-                        **load_kwargs
-                    )
+                # Standard loading
+                model = MSAutoModelForCausalLM.from_pretrained(
+                    model_path,
+                    **load_kwargs
+                )
                 tokenizer = MSAutoTokenizer.from_pretrained(
                     model_path,
                     trust_remote_code=True,
@@ -282,25 +248,11 @@ class UnifiedModelLoader:
                 if should_set_torch_dtype and kwargs.get("torch_dtype") is not None:
                     load_kwargs["torch_dtype"] = kwargs.get("torch_dtype")
 
-                # Check if using AWQ quantization
-                if quantization_config and quantization_config.lower() == "int4_offline_awq":
-                    # Use AWQ loading for pre-quantized AWQ models
-                    awq_model_path = os.path.join(model_path, "awq_quantized")
-                    if not os.path.exists(awq_model_path):
-                        raise FileNotFoundError(f"AWQ quantized model not found at {awq_model_path}. Please run quantize_model_offline.py first.")
-
-                    self.logger.info(f"🔧 Loading AWQ quantized model from: {awq_model_path}")
-                    model = AutoAWQForCausalLM.from_quantized(
-                        awq_model_path,
-                        device_map=kwargs.get("device_map", "auto"),
-                        trust_remote_code=True
-                    )
-                else:
-                    # Standard loading
-                    model = AutoModelForCausalLM.from_pretrained(
-                        model_path,
-                        **load_kwargs
-                    )
+                # Standard loading
+                model = AutoModelForCausalLM.from_pretrained(
+                    model_path,
+                    **load_kwargs
+                )
                 tokenizer = AutoTokenizer.from_pretrained(
                     model_path,
                     trust_remote_code=True,
