@@ -42,11 +42,12 @@ We are open-sourcing Step-Audio-EditX, a powerful **3B parameters** LLM-based au
     - Editing with more emotion and more speaking styles is on the way. **Get Ready!** 🚀
     
 
-- **Paralinguistic Editing**:
+- **Paralinguistic Editing**
   -  Precise control over 10 types of paralinguistic features for more natural, human-like, and expressive synthetic audio.
   - Supporting Tags:
     - [ *Breathing*, *Laughter*, *Suprise-oh*, *Confirmation-en*, *Uhm*, *Suprise-ah*, *Suprise-wa*, *Sigh*, *Question-ei*, *Dissatisfaction-hnn* ]
 
+- **Available Tags**
 <table>
   <tr>
     <td rowspan="8" style="vertical-align: middle; text-align:center;" align="center">emotion</td>
@@ -227,8 +228,10 @@ We are open-sourcing Step-Audio-EditX, a powerful **3B parameters** LLM-based au
   </tr>
 </table>
  
+## Feature Requests & Wishlist
+💡 We welcome all ideas for new features! If you'd like to see a feature added to the project, please start a discussion in our [Discussions](https://github.com/stepfun-ai/Step-Audio-EditX/discussions) section.
 
-
+We'll be collecting community feedback here and will incorporate popular suggestions into our future development plans. Thank you for your contribution!
 
 ## Demos
 
@@ -325,11 +328,6 @@ We are open-sourcing Step-Audio-EditX, a powerful **3B parameters** LLM-based au
 
 
 For more examples, see [demo page](https://stepaudiollm.github.io/step-audio-editx/).
-
-## Tag Description
-
-
-
 
 ## Model Download
 
@@ -487,8 +485,9 @@ Thank you to all the open-source projects for their contributions to this projec
       primaryClass={cs.CL},
       url={https://arxiv.org/abs/2511.03601}, 
 }
-
 ```
+
+
 ## ⚠️ Usage Disclaimer
 - Do not use this model for any unauthorized activities, including but not limited to:
   - Voice cloning without permission
