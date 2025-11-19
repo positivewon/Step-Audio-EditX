@@ -32,9 +32,12 @@ We are open-sourcing Step-Audio-EditX, a powerful **3B-parameter** LLM-based **R
   - [ ] SFT training
   - [ ] PPO training
 - [ ] ⏳ Feature Support Plan
-  - [x] Polyphone pronunciation control
-  - [ ] More paralinguistic tags ([Cough, Crying, Stress, etc.])
-  - [ ] Filler word removal
+  - [ ] Editing
+    - [x] Polyphone pronunciation control
+    - [ ] More paralinguistic tags ([Cough, Crying, Stress, etc.])
+    - [ ] Filler word removal
+  - [ ] Other Languages
+    - [ ] Japanese, Korean, Arabic, French, Russian, Spanish, etc.
   
 ## Features
 - **Zero-Shot TTS**
