@@ -444,10 +444,10 @@ if __name__ == "__main__":
             funasr_model_id=args.tokenizer_model_id
         )
         logger.info("✓ StepAudioTokenizer loaded successfully")
-
+        
         # Initialize common TTS engine directly
         common_tts_engine = StepAudioTTS(
-            os.path.join(args.model_path, "Step-Audio-EditX"),
+            os.path.join(args.model_path, "Step-Audio-EditX-AWQ-4bit" if args.quantization == "awq-4bit" else "Step-Audio-EditX"),
             encoder,
             model_source=model_source,
             tts_model_id=args.tts_model_id,

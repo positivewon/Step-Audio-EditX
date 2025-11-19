@@ -372,6 +372,7 @@ pip install -r requirements.txt
 git lfs install
 git clone https://huggingface.co/stepfun-ai/Step-Audio-Tokenizer
 git clone https://huggingface.co/stepfun-ai/Step-Audio-EditX
+git clone https://huggingface.co/stepfun-ai/Step-Audio-EditX-AWQ-4bit
 
 ```
 
@@ -380,6 +381,7 @@ After downloading the models, where_you_download_dir should have the following s
 where_you_download_dir
 ├── Step-Audio-Tokenizer
 ├── Step-Audio-EditX
+├── Step-Audio-EditX-AWQ-4bit
 ```
 
 #### Run with Docker

@@ -195,7 +195,7 @@ class UnifiedModelLoader:
                     load_kwargs["torch_dtype"] = kwargs.get("torch_dtype")
                 
                 model = AutoModelForCausalLM.from_pretrained(
-                    os.path.join(model_path, quantization_config) if quantization_config == "awq-4bit" else model_path,
+                    model_path,
                     **load_kwargs
                 )
                 tokenizer = AutoTokenizer.from_pretrained(
@@ -224,7 +224,7 @@ class UnifiedModelLoader:
                     load_kwargs["torch_dtype"] = kwargs.get("torch_dtype")
 
                 model = AutoModelForCausalLM.from_pretrained(
-                    os.path.join(model_path, quantization_config) if quantization_config == "awq-4bit" else model_path,
+                    model_path,
                     **load_kwargs
                 )
                 tokenizer = AutoTokenizer.from_pretrained(
@@ -252,7 +252,7 @@ class UnifiedModelLoader:
                     load_kwargs["torch_dtype"] = kwargs.get("torch_dtype")
 
                 model = AutoModelForCausalLM.from_pretrained(
-                    os.path.join(model_path, quantization_config) if quantization_config == "awq-4bit" else model_path,
+                    model_path,
                     **load_kwargs
                 )
                 tokenizer = AutoTokenizer.from_pretrained(
