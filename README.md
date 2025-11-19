@@ -452,6 +452,14 @@ python3 tts_infer.py \
     --edit-type "clone" \
     --output-dir ./output 
 
+python3 tts_infer.py \
+    --model-path where_you_download_dir \
+    --prompt-text "His political stance was conservative, and he was particularly close to margaret thatcher."\
+    --prompt-audio "examples/zero_shot_en_prompt.wav"\
+    --generated-text "Underneath the courtyard is a large underground exhibition room which connects the two buildings.	" \
+    --edit-type "clone" \
+    --output-dir ./output 
+
 # edit
 # There will be one or multiple wave files corresponding to each edit iteration, for example: output/fear_zh_female_prompt_edited_iter1.wav, output/fear_zh_female_prompt_edited_iter2.wav, ...
 # emotion; fear
@@ -461,6 +469,16 @@ python3 tts_infer.py \
     --prompt-audio "examples/fear_zh_female_prompt.wav"\
     --edit-type "emotion" \
     --edit-info "fear" \
+    --n-edit-iter 2 \
+    --output-dir ./output 
+
+# emotion; happy
+python3 tts_infer.py \
+    --model-path where_you_download_dir \
+    --prompt-text "You know, I just finished that big project and feel so relieved. Everything seems easier and more colorful, what a wonderful feeling!" \
+    --prompt-audio "examples/en_happy_prompt.wav"\
+    --edit-type "emotion" \
+    --edit-info "happy" \
     --n-edit-iter 2 \
     --output-dir ./output 
 

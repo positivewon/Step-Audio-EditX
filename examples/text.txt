@@ -1,3 +1,5 @@
+zero_shot_en_prompt.wav His political stance was conservative, and he was particularly close to margaret thatcher.
+en_happy_prompt.wav You know, I just finished that big project and feel so relieved. Everything seems easier and more colorful, what a wonderful feeling!	
 fear_zh_female_prompt.wav   我总觉得，有人在跟着我，我能听到奇怪的脚步声。
 whisper_prompt.wav  比如在工作间隙，做一些简单的伸展运动，放松一下身体，这样，会让你更有精力.
 paralingustic_prompt.wav    我觉得这个计划大概是可行的，不过还需要再仔细考虑一下。
