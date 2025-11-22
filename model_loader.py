@@ -198,7 +198,6 @@ class UnifiedModelLoader:
                     model_path,
                     **load_kwargs
                 )
-                model = torch.compile(model, mode="max-autotune")
 
                 tokenizer = AutoTokenizer.from_pretrained(
                     model_path,
@@ -229,7 +228,6 @@ class UnifiedModelLoader:
                     model_path,
                     **load_kwargs
                 )
-                model = torch.compile(model, mode="max-autotune")
                 tokenizer = AutoTokenizer.from_pretrained(
                     model_path,
                     trust_remote_code=True,
@@ -258,7 +256,6 @@ class UnifiedModelLoader:
                     model_path,
                     **load_kwargs
                 )
-                model = torch.compile(model, mode="max-autotune")
                 tokenizer = AutoTokenizer.from_pretrained(
                     model_path,
                     trust_remote_code=True,

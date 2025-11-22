@@ -150,7 +150,7 @@ class StepAudioTTS:
 
             output_ids = self.llm.generate(
                 torch.tensor([token_ids]).to(torch.long).to("cuda"),
-                max_new_tokens=1024,
+                max_length=8192,
                 temperature=0.7,
                 do_sample=True,
                 logits_processor=LogitsProcessorList([RepetitionAwareLogitsProcessor()]),
