@@ -12,6 +12,7 @@
 </div>
 
 ## 🔥🔥🔥 News!!！
+* Nov 28, 2025: 🚀 New Model Release: Now supporting **`Japanese`** and **`Korean`** languages.
 * Nov 23, 2025: 📊 [Step-Audio-Edit-Benchmark](https://github.com/stepfun-ai/Step-Audio-Edit-Benchmark) Released!
 * Nov 19, 2025: ⚙️ We release a **new version** of our model, which **supports polyphonic pronunciation control** and improves the performance of emotion, speaking style, and paralinguistic editing.
 * Nov 12, 2025: 📦 We release the **optimized inference code** and **model weights** of **Step-Audio-EditX** ([HuggingFace](https://huggingface.co/stepfun-ai/Step-Audio-EditX);  [ModelScope](https://modelscope.cn/models/stepfun-ai/Step-Audio-EditX)) and **Step-Audio-Tokenizer**([HuggingFace](https://huggingface.co/stepfun-ai/Step-Audio-Tokenizer);  [ModelScope](https://modelscope.cn/models/stepfun-ai/Step-Audio-Tokenizer))
@@ -38,7 +39,8 @@ We are open-sourcing Step-Audio-EditX, a powerful **3B-parameter** LLM-based **R
     - [ ] More paralinguistic tags ([Cough, Crying, Stress, etc.])
     - [ ] Filler word removal
   - [ ] Other Languages
-    - [ ] Japanese, Korean, Arabic, French, Russian, Spanish, etc.
+    - [x] Japanese, Korean
+    - [ ] Arabic, French, Russian, Spanish, etc.
   
 ## Features
 - **Zero-Shot TTS**
